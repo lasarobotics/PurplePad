@@ -21,3 +21,17 @@ Display |  *
 1. Install CircuitPython 9.2:
   https://adafruit-circuit-python.s3.amazonaws.com/bin/adafruit_macropad_rp2040/en_US/adafruit-circuitpython-adafruit_macropad_rp2040-en_US-9.2.0.uf2
 2. Copy this repo to the macropad's "CIRCUITPY" drive.
+
+## Robot project integration
+
+Simply create a `CommandXboxController` as you normally would and bind commands to buttons using the `CommandXboxController.button(int button)` method.
+Access the encoder value by using `CommandXboxController.getLeftX()`.
+
+```
+private CommandXboxController m_keypad = new CommandXboxController(1);
+...
+
+m_keypad.getLeftX();
+m_keypad.button(0).onTrue(Commands.print("Hello, world!"));
+
+```
